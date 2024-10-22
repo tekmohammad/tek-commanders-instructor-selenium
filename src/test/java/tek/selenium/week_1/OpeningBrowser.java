@@ -11,5 +11,9 @@ public class OpeningBrowser {
 
         chromeDriver.get("https://www.facebook.com/");
 
+        //Closing browsers
+        chromeDriver.quit();  //Closing browser.
+
+//        chromeDriver.close(); //Closing 1 Tab
     }
 }
