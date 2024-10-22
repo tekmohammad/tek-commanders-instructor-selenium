@@ -12,7 +12,7 @@ public class BrowserSettings {
         //Maximize Browser
         driver.manage().window().maximize();
 
-        String pageTitle = driver.getTitle(); //
+        String pageTitle = driver.getTitle(); //Get Application meta data title
 
         System.out.println(pageTitle);
 
