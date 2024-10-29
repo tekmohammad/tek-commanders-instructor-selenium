@@ -18,11 +18,16 @@ public class RelativeXpathWithFunctions {
 
         Thread.sleep(2000);
 
+        //Example Using text() on Xpath
         WebElement loginButton = driver.findElement(
                 By.xpath("//button[text()='Login']"));
 
+        //Example using contains and attribute
+//        WebElement loginButton = driver.findElement(
+//                By.xpath("//button[contains(@class , 'login__submit')]"));
+
         //isEnabled method return true if the element is enabled
-        //And return false if the element is disabled
+        //And return false if the element is Disabled
         boolean isLoginButtonEnabled =loginButton.isEnabled();
 
         System.out.println(isLoginButtonEnabled);
