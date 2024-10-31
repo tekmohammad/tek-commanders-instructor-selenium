@@ -17,23 +17,22 @@ public class UseCSSLocatorActivity {
         driver.manage().window().maximize();
 
         driver.findElement(
-                By.cssSelector("a#signinLink"))
+                        By.cssSelector("a#signinLink"))
                 .click();
 
         driver.findElement(
-                By.cssSelector("input[name='email']"))
+                        By.cssSelector("input[name='email']"))
                 .sendKeys("Mohammad_Wrong@gmail.com");
         driver.findElement(
-                By.cssSelector("input[name='password']"))
+                        By.cssSelector("input[name='password']"))
                 .sendKeys("WrongPassword");
 
         driver.findElement(
-                By.cssSelector("button#loginBtn"))
+                        By.cssSelector("button#loginBtn"))
                 .click();
 
-        Thread.sleep(1000);
-       String errorMessage = driver.findElement(
-                By.cssSelector("div.error"))
+        String errorMessage = driver.findElement(
+                        By.cssSelector("div.error"))
                 .getText();
 
         System.out.println(errorMessage);
