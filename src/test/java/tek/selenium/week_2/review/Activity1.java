@@ -20,7 +20,7 @@ public class Activity1 {
     password: "password123",
         },
      */
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         WebDriver driver = new ChromeDriver();
         driver.get("https://dev.retail.tekschool-students.com/");
         driver.manage().window().maximize();
@@ -28,36 +28,20 @@ public class Activity1 {
 
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(20));
 
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.linkText("Sign in")))
-                        .click();
+        SeleniumUtility utility = new SeleniumUtility(wait);
 
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.name("email")))
-                .sendKeys("quinn.turner@example.com");
+        utility.click(By.linkText("Sign in"));
 
-        wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.name("password")))
-                .sendKeys("password123");
+        utility.sendKey(By.name("email"), "quinn.turner@example.com");
 
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.xpath("//span[contains(text(),'Sign In')]/..")))
-                .click();
+        utility.sendKey(By.name("password"), "password123");
 
+        utility.click(By.xpath("//span[contains(text(),'Sign In')]/.."));
 
-        wait.until(
-                ExpectedConditions.elementToBeClickable(
-                        By.cssSelector("button.ant-dropdown-trigger")))
-                .click();
+        utility.click(By.cssSelector("button.ant-dropdown-trigger"));
 
-        String username = wait.until(
-                ExpectedConditions.visibilityOfElementLocated(
-                        By.xpath("//ul//div[@class='ant-space-item']")))
-                .getText();
+        String username = utility.getText(
+                By.xpath("//ul//div[@class='ant-space-item']"));
 
         if (username.equals("Quinn Turner"))
             System.out.println("Test passed");
