@@ -24,7 +24,7 @@ public class Activity2 {
 
         SeleniumUtility utility = new SeleniumUtility(wait);
 
-        int randomNumber = (int)(Math.random() * 100);
+        int randomNumber = (int)(Math.random() * 1000);
         String email = "mohammad_instructor"+randomNumber+"@tekschool.us";
         utility.click(By.linkText("Sign in"));
 
